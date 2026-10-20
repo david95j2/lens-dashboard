@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["completed", "summary", "commit", "taskUrl", "versionUrl"],
+  "properties": {
+    "completed": {"type": "boolean"},
+    "summary": {"type": "string"},
+    "commit": {"type": "string"},
+    "taskUrl": {"type": "string"},
+    "versionUrl": {"type": "string"}
+  }
+}

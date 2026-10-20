@@ -1,0 +1,16 @@
+{
+  "port": 4178,
+  "lensPath": "C:/Projects/SIRIUS_LENS",
+  "lensArchivePath": "D:/SIRIUS_LENS/releases",
+  "installerPath": "C:/Projects/lens-installer",
+  "signingKeyAlias": "YOUR_SIGNING_KEY_ALIAS",
+  "codexCommand": "codex.exe",
+  "notion": {
+    "taskDatabase": "",
+    "taskDataSource": "",
+    "versionDatabase": "",
+    "versionDataSource": "",
+    "productDataSource": "",
+    "productName": "SIRIUS LENS"
+  }
+}

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SIRIUS · Build desk</title><link rel="stylesheet" href="/style.css"></head>
+<body><main>
+<header>
+  <a class="brand" href="/"><img src="/branding/sirius.svg" alt="SIRIUS"><span>Build desk</span></a>
+  <div class="common-settings">
+    <label>Model<select id="model" aria-label="Model">
+      <option value="">Default</option><option value="gpt-6.1-sol">GPT-6.1 Sol</option><option value="gpt-6-astra">GPT-6 Astra</option><option value="gpt-6-sol">GPT-6 Sol</option><option value="gpt-6-luna">GPT-6 Luna</option><option value="gpt-5.6-sol">GPT-5.6 Sol</option><option value="gpt-5.6-terra">GPT-5.6 Terra</option><option value="gpt-5.6-luna">GPT-5.6 Luna</option>
+    </select></label>
+    <label>Reasoning<select id="effort" aria-label="Reasoning"><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option><option value="xhigh">Extra High</option></select></label>
+    <button id="connect" class="secondary">Notion 연결</button>
+  </div>
+</header>
+<div id="notice" role="status" hidden></div>
+<section id="products" class="products" aria-label="제품별 작업"></section>
+<section class="current panel" aria-label="현재 작업">
+  <div class="section-title"><h2>현재 작업</h2><span id="activity" role="status" aria-live="polite">불러오는 중</span></div>
+  <div id="current-job"></div>
+  <section id="log-panel" hidden aria-label="작업 로그">
+    <div class="section-title"><h3>작업 로그</h3><button id="close-log" class="secondary">접기</button></div>
+    <p id="log-summary"></p><pre id="log"></pre>
+  </section>
+</section>
+<section class="releases panel" aria-label="배포 및 빌드 기록">
+  <div class="section-title"><h2>배포 및 빌드 기록</h2><a id="notion-version-link" hidden target="_blank" rel="noreferrer">Notion 제품 버전 ↗</a></div>
+  <div class="records-layout">
+  <nav class="product-filter" aria-label="기록 제품 필터">
+    <button data-record-product="all" aria-pressed="true">All</button>
+    <button data-record-product="lens" aria-pressed="false">LENS</button>
+    <button data-record-product="installer" aria-pressed="false">Installer</button>
+  </nav>
+  <div class="records-content">
+  <div class="record-tabs" role="tablist" aria-label="기록 종류">
+    <button id="release-tab" role="tab" aria-selected="true" aria-controls="release-panel" data-record-tab="release">배포 기록</button>
+    <button id="build-tab" role="tab" aria-selected="false" aria-controls="build-panel" tabindex="-1" data-record-tab="build">빌드 기록</button>
+  </div>
+  <div id="release-panel" role="tabpanel" aria-labelledby="release-tab"><div id="releases"></div></div>
+  <div id="build-panel" role="tabpanel" aria-labelledby="build-tab" hidden><div id="builds"></div></div>
+  </div></div>
+</section>
+<details class="history"><summary>이전 작업 기록</summary>
+  <div class="history-controls">
+    <label>제품<select id="history-product"><option value="all">전체</option><option value="lens">LENS</option><option value="installer">Installer</option></select></label>
+    <label>상태<select id="history-status"><option value="all">전체</option><option value="succeeded">완료</option><option value="error">오류 · 중단</option></select></label>
+    <span id="history-count" role="status"></span>
+    <button type="button" id="history-order" class="history-sort" aria-label="최신순 정렬, 클릭하면 오래된 순으로 변경" title="오래된 순으로 변경"><span id="history-order-text">최신순</span><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m4 6 4 4 4-4"/></svg></button>
+  </div><div id="jobs"></div>
+</details>
+<footer>이 PC에서 실행 중 · 자동 푸시·업로드는 하지 않습니다.</footer>
+</main>
+<dialog id="action-dialog" aria-labelledby="dialog-title"><form id="action-form">
+  <div class="dialog-head"><h2 id="dialog-title"></h2><button type="button" id="close-dialog" class="icon" aria-label="닫기">×</button></div>
+  <p id="dialog-description"></p>
+  <label id="version-label" hidden>새 버전<input name="version" placeholder="1.0.3" autocomplete="off"></label>
+  <pre id="changes"></pre>
+  <div id="agent-fields">
+    <label>담당자 이름 또는 이메일 <small>비우면 연결 계정 확인</small><input name="assignee" autocomplete="off"></label>
+    <label>관련 버그·이슈 링크 <small>선택</small><textarea name="issues" rows="2" placeholder="Notion 링크 입력"></textarea></label>
+    <p id="notion-target"></p>
+  </div>
+  <p id="dialog-error" role="alert"></p>
+  <div class="dialog-actions"><button type="button" id="cancel-dialog" class="secondary">취소</button><button type="submit" id="submit-action">실행</button></div>
+</form></dialog>
+<script type="module" src="/app.js"></script></body></html>

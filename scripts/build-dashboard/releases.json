@@ -1,0 +1,24 @@
+[
+  {
+    "date": "2026-10-19",
+    "version": "1.0.2",
+    "summary": "결함 편집 오류 수정 · 인증 화면 버전 표시",
+    "note": "결함 편집 동작을 개선하고 인증 화면에 현재 프로그램 버전을 표시했습니다.",
+    "referenceCommit": "d354583c92630155a38190b158d82258a93167b2"
+  },
+  {
+    "date": "2026-10-15",
+    "version": "1.0.1",
+    "summary": "현황 점검에 건설사 양식의 균열 전용 보고서 추가",
+    "note": "비교 점검의 보고서 양식 선택을 제거하고 기본 양식으로 출력하도록 통일. 현황 점검에는 건설사 양식의 균열 전용 보고서 출력 기능 추가.",
+    "referenceCommit": "eb7c3aaa29e9ac9b73a6accd66eb82c415912b81",
+    "commitSubject": "fix(projects): preserve thumbnails and display them in HUB import"
+  },
+  {
+    "date": "2026-10-14",
+    "version": "1.0.0",
+    "summary": "SIRIUS LENS 최초 버전 배포",
+    "note": "초기 버전 배포. 비교 점검에서 보고서 타입을 선택하여 기본 양식과 건설사 양식, 두 가지 타입의 보고서 출력 지원.",
+    "referenceCommit": ""
+  }
+]
